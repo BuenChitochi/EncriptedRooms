@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b5t30ncyilpqp"]
+
+[ext_resource type="Script" uid="uid://dfdlk724285p0" path="res://door.gd" id="1_iu8q0"]
+[ext_resource type="PackedScene" uid="uid://blbnvusx5rkkr" path="res://a_200.tscn" id="2_0phs7"]
+[ext_resource type="Texture2D" uid="uid://bspe7j8nrln3r" path="res://Assets/Door.png" id="2_cuixy"]
+[ext_resource type="PackedScene" uid="uid://dr3jvyf3xybqj" path="res://A-25.tscn" id="3_50cdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
+size = Vector2(52, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
+size = Vector2(52, 97)
+
+[node name="door" type="Area2D" unique_id=1017316814]
+collision_layer = 2
+script = ExtResource("1_iu8q0")
+backtracker_scene = ExtResource("2_0phs7")
+entity_scene = ExtResource("3_50cdl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1702607842]
+position = Vector2(0, 0.5)
+scale = Vector2(1.03, 1.03)
+shape = SubResource("RectangleShape2D_8w0r3")
+one_way_collision = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=951435594]
+position = Vector2(345, 16)
+
+[node name="doormove" type="AnimatableBody2D" parent="." unique_id=464182478]
+position = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doormove" unique_id=857733704]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_h4t55")
+
+[node name="Sprite2D" type="Sprite2D" parent="doormove" unique_id=858695778]
+position = Vector2(0, 48)
+texture = ExtResource("2_cuixy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

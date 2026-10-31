@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://buestjk1mjq3h"]
+
+[ext_resource type="Texture2D" uid="uid://c07e8d5jmsfhb" path="res://Assets/Player.png" id="1_f50pn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4o3f6"]
+radius = 20.506096
+
+[sub_resource type="Gradient" id="Gradient_f50pn"]
+offsets = PackedFloat32Array(0, 0.61875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngv3o"]
+gradient = SubResource("Gradient_f50pn")
+width = 255
+height = 255
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Player" type="CharacterBody2D" unique_id=1900126230 groups=["player"]]
+position = Vector2(59, 29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962660234]
+shape = SubResource("CircleShape2D_4o3f6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459104541]
+texture_filter = 1
+scale = Vector2(0.625, 0.6484375)
+texture = ExtResource("1_f50pn")
+region_enabled = true
+region_rect = Rect2(0, 0, 60, 62)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=93956436]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273268005]
+zoom = Vector2(1.5, 1.5)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1198764281]
+texture = SubResource("GradientTexture2D_ngv3o")
+texture_scale = 1.5

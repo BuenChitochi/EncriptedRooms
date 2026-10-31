@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dr3jvyf3xybqj"]
+
+[ext_resource type="Script" uid="uid://cqqkbep3nuktw" path="res://a_25.gd" id="1_0y1f5"]
+[ext_resource type="Texture2D" uid="uid://b8jqyn1w5xkm4" path="res://Assets/A-25.png" id="2_h3mpv"]
+[ext_resource type="AudioStream" uid="uid://btbjnbc6v3gj8" path="res://Audio/A-25Hit.ogg" id="2_tj7lo"]
+[ext_resource type="AudioStream" uid="uid://dvx4pxsu63av1" path="res://Audio/A-25Ambient.wav" id="3_4anny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4t55"]
+radius = 22.847319
+
+[sub_resource type="Gradient" id="Gradient_tj7lo"]
+offsets = PackedFloat32Array(0.0125, 1)
+colors = PackedColorArray(0.69411767, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8w0r3"]
+gradient = SubResource("Gradient_tj7lo")
+fill = 1
+fill_from = Vector2(0.49107143, 0.52678573)
+fill_to = Vector2(0.08035714, 0.21428572)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7mgy"]
+radius = 25.019993
+
+[node name="A-25" type="CharacterBody2D" unique_id=1819577770]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
+platform_wall_layers = 2
+script = ExtResource("1_0y1f5")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=389712555]
+stream = ExtResource("2_tj7lo")
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="." unique_id=394622668]
+stream = ExtResource("3_4anny")
+volume_db = 8.0
+autoplay = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=669916500]
+texture_filter = 1
+shape = SubResource("CircleShape2D_h4t55")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1019290684]
+scale = Vector2(2, 2)
+energy = 5.0
+texture = SubResource("GradientTexture2D_8w0r3")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=604459818]
+amount = 50
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 1)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.59607846, 0, 0.050980393, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2127357454]
+texture = ExtResource("2_h3mpv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1114315319]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1078947082]
+shape = SubResource("CircleShape2D_w7mgy")

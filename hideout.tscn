@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://df8y1jm3apdrg"]
+
+[ext_resource type="Script" uid="uid://37dr7quc62tr" path="res://hideout.gd" id="1_7i1g1"]
+[ext_resource type="Texture2D" uid="uid://cpetfcu6rb8ek" path="res://Assets/Locker.png" id="1_ljg1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i1g1"]
+size = Vector2(64, 64)
+
+[node name="Hideout" type="Area2D" unique_id=1895227860]
+collision_layer = 0
+script = ExtResource("1_7i1g1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904347201]
+shape = SubResource("RectangleShape2D_7i1g1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043536431]
+texture_filter = 1
+texture = ExtResource("1_ljg1i")
